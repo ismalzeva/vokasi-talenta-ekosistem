@@ -1,14 +1,33 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import LandingPage from "@/components/LandingPage";
+import LPKDashboard from "@/components/dashboards/LPKDashboard";
+import JobSeekerDashboard from "@/components/dashboards/JobSeekerDashboard";
+import GovernmentDashboard from "@/components/dashboards/GovernmentDashboard";
 
 const Index = () => {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
-  );
+  const [currentView, setCurrentView] = useState<'landing' | 'lpk' | 'jobseeker' | 'government'>('landing');
+
+  const handleRoleSelect = (role: 'lpk' | 'jobseeker' | 'government') => {
+    setCurrentView(role);
+  };
+
+  const handleBackToLanding = () => {
+    setCurrentView('landing');
+  };
+
+  if (currentView === 'lpk') {
+    return <LPKDashboard onBack={handleBackToLanding} />;
+  }
+
+  if (currentView === 'jobseeker') {
+    return <JobSeekerDashboard onBack={handleBackToLanding} />;
+  }
+
+  if (currentView === 'government') {
+    return <GovernmentDashboard onBack={handleBackToLanding} />;
+  }
+
+  return <LandingPage onRoleSelect={handleRoleSelect} />;
 };
 
 export default Index;
