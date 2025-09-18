@@ -25,50 +25,50 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
   const userRoles = [
     {
       id: 'lpk',
-      title: 'LPK/BLK Provider',
+      title: 'Penyedia LPK/BLK',
       description: 'Lembaga Pelatihan Kerja & Balai Latihan Kerja',
       icon: GraduationCap,
       color: 'bg-gradient-primary',
       features: [
-        'Upload training syllabus & modules',
-        'Manage schedules & attendance',
-        'Submit real-time reports',
-        'Access industry collaboration board'
+        'Unggah silabus & modul pelatihan',
+        'Kelola jadwal & kehadiran',
+        'Kirim laporan real-time',
+        'Akses papan kolaborasi industri'
       ]
     },
     {
       id: 'jobseeker',
-      title: 'Job Seeker',
+      title: 'Pencari Kerja',
       description: 'Calon Tenaga Kerja',
       icon: Users,
       color: 'bg-gradient-success',
       features: [
-        'Build dynamic CV profile',
-        'Redeem training vouchers',
-        'Access overseas job opportunities',
-        'Track competency certificates'
+        'Buat profil CV dinamis',
+        'Tukar voucher pelatihan',
+        'Akses peluang kerja luar negeri',
+        'Lacak sertifikat kompetensi'
       ]
     },
     {
       id: 'government',
-      title: 'Government',
-      description: 'Monitoring & Analytics Dashboard',
+      title: 'Pemerintah',
+      description: 'Dashboard Monitoring & Analitik',
       icon: Building2,
       color: 'bg-gradient-indonesian',
       features: [
-        'National training monitoring',
-        'Real-time placement data',
-        'Fund disbursement tracking',
-        'Performance analytics'
+        'Monitoring pelatihan nasional',
+        'Data penempatan real-time',
+        'Pelacakan pencairan dana',
+        'Analitik performa'
       ]
     }
   ];
 
   const stats = [
-    { label: 'Active Training Centers', value: '1,247', icon: Building2 },
-    { label: 'Certified Job Seekers', value: '89,523', icon: Users },
-    { label: 'Job Placements', value: '45,891', icon: Star },
-    { label: 'Partner Companies', value: '3,456', icon: Award }
+    { label: 'Pusat Pelatihan Aktif', value: '1,247', icon: Building2 },
+    { label: 'Pencari Kerja Tersertifikasi', value: '89,523', icon: Users },
+    { label: 'Penempatan Kerja', value: '45,891', icon: Star },
+    { label: 'Perusahaan Mitra', value: '3,456', icon: Award }
   ];
 
   return (
@@ -86,7 +86,7 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
           <div className="text-center text-primary-foreground max-w-4xl mx-auto">
             <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30">
               <MapPin className="w-4 h-4 mr-2" />
-              Indonesia National Platform
+              Platform Nasional Indonesia
             </Badge>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
@@ -94,7 +94,7 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in">
-              Integrated Vocational Training & Job Placement Ecosystem
+              Ekosistem Terintegrasi Pelatihan Vokasi & Penempatan Kerja
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -104,7 +104,7 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
                 className="animate-bounce-in"
                 onClick={() => document.getElementById('roles')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explore Platform
+                Jelajahi Platform
                 <ArrowRight className="w-5 h-5" />
               </Button>
               
@@ -114,7 +114,7 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
                 className="border-white/30 text-white hover:bg-white hover:text-primary animate-bounce-in"
                 style={{ animationDelay: '0.2s' }}
               >
-                Watch Demo
+                Tonton Demo
                 <Calendar className="w-5 h-5" />
               </Button>
             </div>
@@ -144,10 +144,10 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gradient-primary">
-              Choose Your Role
+              Pilih Peran Anda
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Access the platform designed specifically for your needs in Indonesia's vocational training ecosystem
+              Akses platform yang dirancang khusus untuk kebutuhan Anda dalam ekosistem pelatihan vokasi Indonesia
             </p>
           </div>
 
@@ -190,7 +190,7 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
                     className="w-full mt-6 group"
                     onClick={() => onRoleSelect(role.id as 'lpk' | 'jobseeker' | 'government')}
                   >
-                    Access Dashboard
+                    Akses Dashboard
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
@@ -204,9 +204,9 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
       <section className="py-20 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Platform Features</h2>
+            <h2 className="text-4xl font-bold mb-4">Fitur Platform</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive tools for managing Indonesia's vocational training and job placement ecosystem
+              Alat komprehensif untuk mengelola ekosistem pelatihan vokasi dan penempatan kerja Indonesia
             </p>
           </div>
 
@@ -214,33 +214,33 @@ export default function LandingPage({ onRoleSelect }: LandingPageProps) {
             {[
               {
                 icon: BarChart3,
-                title: 'Real-time Analytics',
-                description: 'Monitor training progress and job placement outcomes with live data visualization'
+                title: 'Analitik Real-time',
+                description: 'Pantau kemajuan pelatihan dan hasil penempatan kerja dengan visualisasi data langsung'
               },
               {
                 icon: Award,
-                title: 'Voucher System',
-                description: 'Digital voucher management for training, certification, and job placement services'
+                title: 'Sistem Voucher',
+                description: 'Manajemen voucher digital untuk layanan pelatihan, sertifikasi, dan penempatan kerja'
               },
               {
                 icon: Users,
-                title: 'AI-Powered Matching',
-                description: 'Smart recommendations for training programs and job opportunities'
+                title: 'Pencocokan AI',
+                description: 'Rekomendasi cerdas untuk program pelatihan dan peluang kerja'
               },
               {
                 icon: Building2,
-                title: 'Industry Collaboration',
-                description: 'Connect training providers with industry partners for better job outcomes'
+                title: 'Kolaborasi Industri',
+                description: 'Menghubungkan penyedia pelatihan dengan mitra industri untuk hasil kerja yang lebih baik'
               },
               {
                 icon: GraduationCap,
-                title: 'Certification Tracking',
-                description: 'Digital certificates and competency tracking across all training programs'
+                title: 'Pelacakan Sertifikasi',
+                description: 'Sertifikat digital dan pelacakan kompetensi di semua program pelatihan'
               },
               {
                 icon: MapPin,
-                title: 'National Coverage',
-                description: 'Comprehensive coverage across all provinces and regions in Indonesia'
+                title: 'Cakupan Nasional',
+                description: 'Cakupan komprehensif di seluruh provinsi dan daerah di Indonesia'
               }
             ].map((feature, index) => (
               <Card 
