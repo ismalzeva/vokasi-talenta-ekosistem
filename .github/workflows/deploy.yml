@@ -1,0 +1,53 @@
+name: Build & Deploy Prod
+
+concurrency:
+  group: prod-deploy
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: ["staging"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install -g yarn && yarn install --frozen-lockfile
+
+      - name: Build app with production environment
+        run: yarn build
+
+      - name: Verify build output
+        run: ls -lh dist/
+
+      - name: Prepare deployment package
+        uses: a7ul/tar-action@v1.1.0
+        with:
+          command: c
+          cwd: "./"
+          files: |
+            dist/
+            Dockerfile
+            nginx.conf
+          outPath: deploy.tar
+
+      - name: Deploy to CapRover
+        uses: caprover/deploy-from-github@main
+        with:
+          server: "https://captain.this.prod.zenika.id"
+          app: "monitoring-lpk"
+          token: "${{ secrets.CAPROVER_TOKEN }}"
