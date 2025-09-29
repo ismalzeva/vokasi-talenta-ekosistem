@@ -160,7 +160,7 @@ function buildProvincialData(lpks: Lpk[]): ProvincialRow[] {
 export default function GovernmentDashboard({
   onBack,
 }: GovernmentDashboardProps) {
-  const [activeTab, setActiveTab] = useState("national");
+  const [activeTab, setActiveTab] = useState("list");
   const provincialData = useMemo(
     () => buildProvincialData(mockLpkData ?? []),
     []
