@@ -63,7 +63,9 @@ export function LpkCard({ lpk }: LpkCardProps) {
                   Penempatan Kerja
                 </span>
               </div>
-              <p className="text-lg font-bold text-success">{lpk.placement}%</p>
+              <p className="text-lg font-bold text-success">
+                {Math.round((lpk.placement / 3506) * 100)}%
+              </p>
             </div>
           </div>
 

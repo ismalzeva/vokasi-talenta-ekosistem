@@ -24,15 +24,39 @@ import { useMemo } from "react";
 export default function LpkDetail() {
   const { id } = useParams();
   const lpk = mockLpkData.find((l) => l.vin === id);
-  const sorted = useMemo(
-    () =>
-      [...lpk.realizationOfIndependentTrainings].sort(
-        (a, b) => b.count - a.count
-      ),
-    [lpk.realizationOfIndependentTrainings]
-  );
+  const years = [2022, 2023, 2024, 2025];
 
-  console.log("👻 ~ LpkDetail ~ sorted:", sorted);
+  const totals = mockLpkData
+    .flatMap((d) => d.realizationOfIndependentTrainings || [])
+    .filter((r) => years.includes(r.year))
+    .reduce(
+      (acc, { year, count }) => {
+        acc[year] = (acc[year] ?? 0) + (count ?? 0);
+        return acc;
+      },
+      { 2022: 0, 2023: 0, 2024: 0, 2025: 0 }
+    );
+
+  const lpkPercent = useMemo(() => {
+    // bikin lookup cepat untuk nilai LPK per tahun
+    const ownMap = Object.fromEntries(
+      (lpk.realizationOfIndependentTrainings ?? []).map(({ year, count }) => [
+        year,
+        count ?? 0,
+      ])
+    );
+
+    const arr = years.map((year) => {
+      const own = ownMap[year] ?? 0;
+      const total = totals[year] ?? 0;
+      const pct = total > 0 ? (own / total) * 100 : 0;
+      return { year, count: +pct.toFixed(1) }; // count = persen, 1 desimal
+    });
+
+    // kalau mau urut dari persen terbesar ke kecil:
+    return arr;
+  }, [lpk.realizationOfIndependentTrainings, totals, years]);
+
   if (!lpk) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -172,8 +196,8 @@ export default function LpkDetail() {
             type="bar"
           />
           <LpkChart
-            data={sorted}
-            title="Distribusi Peserta per Tahun"
+            data={lpkPercent}
+            title="Kontribusi Pencapaian Nasional"
             type="line"
           />
         </div>
@@ -240,18 +264,20 @@ export default function LpkDetail() {
 
               <div>
                 <label className="text-sm font-medium text-muted-foreground">
-                  Tingkat Penempatan Kerja
+                  Tingkat Penempatan Kerja (Peserta)
                 </label>
                 <div className="mt-1">
                   <div className="flex items-center gap-2">
                     <div className="flex-1 bg-muted rounded-full h-2">
                       <div
                         className="bg-gradient-success h-2 rounded-full transition-all duration-500"
-                        style={{ width: `${lpk.placement}%` }}
+                        style={{
+                          width: `${Math.round((lpk.placement / 3506) * 100)}%`,
+                        }}
                       />
                     </div>
                     <span className="text-lg font-bold text-success">
-                      {lpk.placement}%
+                      {Math.round((lpk.placement / 3506) * 100)}
                     </span>
                   </div>
                 </div>

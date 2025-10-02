@@ -69,7 +69,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 60 },
       { year: 2025, count: 94 },
     ],
-    placement: 0,
+    placement: 74,
   },
   {
     name: "LPKS MAGDY INDONESIA",
@@ -433,7 +433,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 135 },
       { year: 2025, count: 136 },
     ],
-    placement: 0,
+    placement: 160,
   },
   {
     name: "LPK SAKURA INDONESIA",
@@ -447,7 +447,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 114 },
       { year: 2025, count: 117 },
     ],
-    placement: 0,
+    placement: 873,
   },
   {
     name: "LPK PT. REJEKI LANGGENG MAKMUR",
@@ -475,7 +475,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 949 },
       { year: 2025, count: 756 },
     ],
-    placement: 0,
+    placement: 913,
   },
   {
     name: "LPK MULIA MANDIRI INDONESIA",
@@ -559,7 +559,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 391 },
       { year: 2025, count: 121 },
     ],
-    placement: 0,
+    placement: 105,
   },
   {
     name: "LPK COOP INDONESIA",
@@ -587,7 +587,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 60 },
       { year: 2025, count: 63 },
     ],
-    placement: 0,
+    placement: 224,
   },
   {
     name: "LPK PERWITA NUSARAYA",
@@ -713,7 +713,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 115 },
       { year: 2025, count: 73 },
     ],
-    placement: 0,
+    placement: 502,
   },
   {
     name: "LPK KOCHI MAKMUR INDONESIA",
@@ -1105,7 +1105,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 90 },
       { year: 2025, count: 99 },
     ],
-    placement: 0,
+    placement: 63,
   },
   {
     name: "LPK MASSAIHARA",
@@ -1217,10 +1217,10 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 96 },
       { year: 2025, count: 89 },
     ],
-    placement: 0,
+    placement: 89,
   },
   {
-    name: "PT LPK CAHAYA DUTA  BALI",
+    name: "PT LPK CAHAYA DUTA BALI",
     province: "-",
     vin: "2303510104",
     trainingProgram: "BAHASA JEPANG",
@@ -1231,7 +1231,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 8 },
       { year: 2025, count: 0 },
     ],
-    placement: 0,
+    placement: 19,
   },
   {
     name: "LPK GANESHA KARYA ABADI",
@@ -1441,7 +1441,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 58 },
       { year: 2025, count: 51 },
     ],
-    placement: 0,
+    placement: 44,
   },
   {
     name: "LPK YAYASAN HINODE ABADI INDONESIA",
@@ -1595,7 +1595,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 94 },
       { year: 2025, count: 30 },
     ],
-    placement: 0,
+    placement: 30,
   },
   {
     name: "BLP3-SDM YOKATTA",
@@ -1819,7 +1819,7 @@ export const mockLpkData: Lpk[] = [
       { year: 2024, count: 11 },
       { year: 2025, count: 22 },
     ],
-    placement: 0,
+    placement: 26,
   },
   {
     name: "LPK WIWITAN BARU SUKABUMI",

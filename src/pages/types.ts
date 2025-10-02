@@ -5,7 +5,7 @@ export interface Lpk {
   trainingProgram: string;
   verificationStatus: "verified" | "unverified";
   realizationOfIndependentTrainings: RealizationOfIndependentTraining[];
-  placement: 0;
+  placement: number;
 }
 
 export interface RealizationOfIndependentTraining {
